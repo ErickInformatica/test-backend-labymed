@@ -1,4 +1,6 @@
-const Estudiante = require("../models/estudiante.model");
+// const Estudiante = require("../models/estudiante.model");
+const db = require("../../index");
+const Estudiante = db.Estudiante;
 
 // TRAE TODOS LOS ESTUDIANTES
 exports.getAllEstudiantes = (req, res) => {

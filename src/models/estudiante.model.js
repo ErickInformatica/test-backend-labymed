@@ -1,5 +1,10 @@
 module.exports = (sequelize, Sequelize) => {
     const Estudiante = sequelize.define("ESTUDIANTE", {
+      idEstudiante: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+      },
       nombre: {
         type: Sequelize.STRING
       },
@@ -12,7 +17,8 @@ module.exports = (sequelize, Sequelize) => {
       seccion: {
         type: Sequelize.STRING
       }
-    });
+    },
+    { timestamps: false });
   
     return Estudiante;
   };

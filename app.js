@@ -8,8 +8,6 @@ const estudiante_route = require('./src/routes/estudiante.routes');
 const curso_route = require('./src/routes/curso.routes');
 const cursoEstudiante_route = require('./src/routes/curso_estudiante.routes');
 
-
-
 app.use(cors());
 
 app.use(express.json());
@@ -18,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api',usuarios_route ,estudiante_route, curso_route, cursoEstudiante_route);
 
-const db = require("./app/models");
+const db = require("./index");
 db.sequelize.sync()
   .then(() => {
     console.log("DB Sincronizada.");
@@ -28,7 +26,7 @@ db.sequelize.sync()
   });
 
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`El servidor se encuentra corriendo en el puerto: ${PORT}.`);
 });

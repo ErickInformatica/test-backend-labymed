@@ -1,4 +1,6 @@
-const Curso = require("../models/curso.model");
+// const Curso = require("../models/curso.model");
+const db = require("../../index");
+const Curso = db.Curso;
 
 // TRAE TODOS LOS CURSOS
 exports.getAllCursos = (req, res) => {

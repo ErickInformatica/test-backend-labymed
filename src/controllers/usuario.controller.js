@@ -1,11 +1,14 @@
-const Usuario = require("../models/usuario.model");
+// const Usuario = require("../models/usuario.model");
+const db = require("../../index");
+const Usuario = db.Usuario;
+
 const jwt = require('../services/jwt');
 
 // LOGEAR
 exports.login = (req, res) => {
     const params = req.body;
 
-    Usuario.findOne({ usuario: params.usuario, contrasena: params.contrasena })
+    Usuario.findOne({where: { usuario: params.usuario, contrasena: params.contrasena }})
     .then((result) => {
         if(!result) res.status(500).send({ message: 'No se ha encontrado el usuario' });
         res.status(200).send({ token: jwt.createToken(result) });

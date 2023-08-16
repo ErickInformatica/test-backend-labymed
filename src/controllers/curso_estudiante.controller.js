@@ -1,4 +1,6 @@
-const CursoEstudiante = require("../models/curso_estudiante.model");
+// const CursoEstudiante = require("../models/curso_estudiante.model");
+const db = require("../../index");
+const CursoEstudiante = db.CursoEstudiante;
 
 // TRAE TODOS LOS CURSOS POR ESTUDIANTE
 exports.getAllCursosEstudiante = (req, res) => {
